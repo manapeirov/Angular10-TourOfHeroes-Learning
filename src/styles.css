@@ -16,10 +16,42 @@ body {
 }
 body,
 input[type="text"],
+input {
+  border-radius: 15px;
+}
+input::placeholder {
+  color: rgb(197, 197, 197);
+  padding-left: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
 button {
+  outline: none;
+  cursor: pointer;
   color: #333;
   font-family: Cambria, Georgia;
+  border: none;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 15px;
+  width: 5rem;
 }
+
+button:hover {
+  background-color: rgb(112, 112, 112);
+}
+
+button:disabled {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+  cursor: not-allowed;
+}
+
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;

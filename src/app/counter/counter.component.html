@@ -1,6 +1,15 @@
-<p>counter: {{counter}}</p>
+<p class="counter-value">counter: {{counter}}</p>
 <button (click)="increment()">+</button>
 <button (click)="decrement()">-</button>
+
+<!-- <p class="counter-value">Observable counter: {{observableCounter}}</p>
+<button #incrementButton value="1" (click)="incrementObs(incrementButton.value)">+</button>
+<button  #decrementButton value="-1"(click)="decrementObs(decrementButton.value)">-</button> -->
+
+<p class="counter-value">Observable counter: {{observableCounter}}</p>
+<button #incrementButton value="1" (click)="observableOnClick(incrementButton.value)">+</button>
+<button  #decrementButton value="-1" (click)="observableOnClick(decrementButton.value)">-</button>
+
 
 <p>Timer: {{timer}}</p>
 <button (click)="startTimer()">Start</button>

@@ -1,0 +1,21 @@
+<p>form works!</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Email address</label>
+    <input type="email" placeholder="Enter email" formControlName="email" />
+    <small class="error-message" *ngIf="email.invalid && email.touched"
+      >Email is invalid</small
+    >
+    <br />
+    <small>We'll never share your email with anyone else.</small>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" placeholder="Password" formControlName="password" />
+    <small class="error-message" *ngIf="password.invalid && password.touched"
+      >Password is invalid</small
+    >
+  </div>
+  <button [disabled]="form.invalid" type="submit">Submit</button>
+</form>

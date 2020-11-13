@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { Subject } from 'rxjs';
+import { scan } from 'rxjs/operators';
 
 @Component({
   selector: 'app-counter',
@@ -12,8 +13,6 @@ export class CounterComponent implements OnInit {
   isPaused = false;
   constructor() {}
 
-  ngOnInit(): void {}
-
   increment = () => {
     this.counter++;
   };
@@ -23,6 +22,7 @@ export class CounterComponent implements OnInit {
   };
 
   startTimer = () => {
+    this.isPaused = false;
     setInterval(() => {
       if (!this.isPaused) {
         this.timer++;
@@ -36,5 +36,22 @@ export class CounterComponent implements OnInit {
 
   resetTimer = () => {
     this.timer = 0;
+  };
+
+  // Using observables to implement counter
+  observableCounter : number
+  clickStream$ = new Subject<number>();
+
+  ngOnInit(): void {
+    this.clickStream$
+      .pipe(
+        scan((total, newValue) => total + Number(newValue), 0))
+      .subscribe((clicksTotal) => {
+        this.observableCounter = clicksTotal
+      });
+  }
+
+  observableOnClick = (value: number) => {
+    this.clickStream$.next(value);
   };
 }

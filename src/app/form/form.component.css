@@ -1,0 +1,31 @@
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+input.ng-touched.ng-valid {
+  border: 1px solid green;
+}
+
+label {
+  padding-right: 1rem;
+}
+
+input {
+  float: right;
+  height: 18px;
+}
+
+form {
+  width: 300px;
+}
+
+small {
+  white-space: nowrap;
+  color: rgb(209, 209, 209);
+}
+div {
+  padding-bottom: 1rem;
+}
+
+.error-message {
+  color: rgb(226, 25, 25);
+}
